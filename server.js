@@ -5,7 +5,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
-const MONGO_URI = config.MONGO_URI;
+const MONGO_URI = config.MONGO_URI || process.env.MONGO_URI;
 
 mongoose
     .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
