@@ -10,11 +10,6 @@ const MONGO_URI = config.MONGO_URI;
 mongoose
     .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-//const passport = require("passport");
-
-//app.use(passport.initialize());
-//require("./middleware/passport")(passport);
-
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
