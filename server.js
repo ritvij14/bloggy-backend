@@ -5,7 +5,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
-const MONGO_URI = config.MONGO_URI || process.env.MONGO_URI;
+const MONGO_URI = require("./config.json").MONGO_URI || process.env.MONGO_URI;
 
 mongoose
     .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -32,10 +32,6 @@ app.use((req, res, next) => {
     next();
 });
 
-//for no endpoint specified
-app.use("/", (req, res) => res.status(200).json({
-    message: "Welcome to bloggy"
-}));
 //app.get('/favicon.ico', (req, res) => res.status(204));
 
 //Routes for incoming requests
@@ -53,3 +49,8 @@ app.use((error, req, res, next) => {
         error: error.message
     });
 });
+
+//for no endpoint specified
+app.use("/", (req, res) => res.status(200).json({
+    message: "Welcome to bloggy"
+}));
