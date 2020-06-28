@@ -37,6 +37,11 @@ app.use((req, res, next) => {
 //Routes for incoming requests
 app.use("/posts", require("./routes/postRouter"));
 
+//for no endpoint specified
+app.get("/", (req, res) => res.status(200).json({
+    message: "Welcome to bloggy"
+}));
+
 app.use((req, res, next) => {
     const error = new Error('Not found');
     error.status = 404;
@@ -49,8 +54,3 @@ app.use((error, req, res, next) => {
         error: error.message
     });
 });
-
-//for no endpoint specified
-app.use("/", (req, res) => res.status(200).json({
-    message: "Welcome to bloggy"
-}));
