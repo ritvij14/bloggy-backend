@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => res.status(200).json({
     message: "Welcome to bloggy"
 }));
-app.get('/favicon.ico', (req, res) => res.status(204));
+//app.get('/favicon.ico', (req, res) => res.status(204));
 
 //Routes for incoming requests
 app.use("/posts", require("./routes/postRouter"));
