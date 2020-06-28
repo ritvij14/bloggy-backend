@@ -1,11 +1,11 @@
 const express = require("express");
-const config = require("./config.json");
+//const config = require("./config.json");
 const app = express();
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
-const MONGO_URI = require("./config.json").MONGO_URI || process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI || require('./config.json').MONGO_URI;
 
 mongoose
     .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
