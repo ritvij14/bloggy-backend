@@ -1,9 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/postModel");
-const mongoose = require("mongoose");
-const passport = require("passport");
-const validatePostInput = require("../validation/post");
 
 router.get("/all", (req, res) => {
 
@@ -11,9 +8,11 @@ router.get("/all", (req, res) => {
         .select('_id title content date')
         .then((posts) => {
             res.status(200).json({
+                
                 message: `Number of blogs: ${posts.length}`,
                 posts: posts.map(post => {
                     return Object.assign({}, {
+
                         title: post.title,
                         content: post.content,
                         id: post._id,

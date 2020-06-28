@@ -39,7 +39,6 @@ app.get("/", (req, res) => res.status(200).json({
 app.get('/favicon.ico', (req, res) => res.status(204));
 
 //Routes for incoming requests
-app.use("/users", require("./routes/userRouter"));
 app.use("/posts", require("./routes/postRouter"));
 
 app.use((req, res, next) => {
