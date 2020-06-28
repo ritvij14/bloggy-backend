@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 });
 
 //for no endpoint specified
-app.get("/", (req, res) => res.status(200).json({
+app.use("/", (req, res) => res.status(200).json({
     message: "Welcome to bloggy"
 }));
 //app.get('/favicon.ico', (req, res) => res.status(204));
