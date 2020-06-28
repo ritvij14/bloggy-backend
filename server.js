@@ -1,5 +1,4 @@
 const express = require("express");
-//const config = require("./config.json");
 const app = express();
 const morgan = require("morgan");
 const mongoose = require("mongoose");
@@ -31,8 +30,6 @@ app.use((req, res, next) => {
     }
     next();
 });
-
-//app.get('/favicon.ico', (req, res) => res.status(204));
 
 //Routes for incoming requests
 app.use("/posts", require("./routes/postRouter"));

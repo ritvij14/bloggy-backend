@@ -18,7 +18,7 @@ router.get("/all", (req, res) => {
                         id: post._id,
                         request: {
                             type: 'GET',
-                            url: 'localhost:5000/posts/selected/' + post._id
+                            endpoint: '/posts/selected/' + post._id
                         }
                     })
                 })
