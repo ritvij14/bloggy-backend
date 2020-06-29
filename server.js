@@ -33,6 +33,7 @@ app.use((req, res, next) => {
 
 //Routes for incoming requests
 app.use("/posts", require("./routes/postRouter"));
+app.use("/admin", require("./routes/adminRouter"));
 
 //for no endpoint specified
 app.get("/", (req, res) => res.status(200).json({
