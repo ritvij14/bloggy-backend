@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/postModel");
+const checkAuth = require("../middleware/check-auth");
 
 router.get("/all", (req, res) => {
 
@@ -50,7 +51,7 @@ router.get("/selected/:postId", (req, res) => {
     })
 });
 
-router.delete("/delete/:postId", (req, res) => {
+router.delete("/delete/:postId", checkAuth, (req, res) => {
 
     const id = req.params.postId;
 
@@ -65,7 +66,7 @@ router.delete("/delete/:postId", (req, res) => {
     })
 });
 
-router.post("/add", (req, res) => {
+router.post("/add", checkAuth, (req, res) => {
 
     const post = new Post(req.body);
 
@@ -83,7 +84,7 @@ router.post("/add", (req, res) => {
     });
 });
 
-router.patch("/update/:postId", (req, res) => {
+router.patch("/update/:postId", checkAuth, (req, res) => {
 
     const id = req.params.postId;
     const updateOps = {};
